@@ -1,21 +1,23 @@
 class MinStack {
       Stack<Integer> stack = new Stack();
-      Stack<Integer> mValues = new Stack();
+       int min = Integer.MAX_VALUE ;
+    
     
     
     public void push(int val) {
-        if(mValues.isEmpty() || val <= mValues.peek()){
-            mValues.push(val);
+        if(val <= min){
+            stack.push(min);
+            min = val ;
         }
         stack.push(val);
+        
         
     }
     
     public void pop() {
-        if(stack.peek().equals(mValues.peek())){
-            mValues.pop();
+        if(stack.pop()==min){
+            min = stack.pop();
         }
-        stack.pop();
         
     }
     
@@ -25,7 +27,7 @@ class MinStack {
     }
     
     public int getMin() {
-        return mValues.peek(); // top of stack of minimum latest value updated
+        return min ;
         
     }
 }
