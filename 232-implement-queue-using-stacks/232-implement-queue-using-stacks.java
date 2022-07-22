@@ -11,7 +11,7 @@ class MyQueue {
     public void push(int x) {
         //if the input stack is not empty
         //then top elemnt of input is pushed to output and popped from input
-        while(input.empty()== false){
+       while(input.empty()== false){
             output.push(input.peek());
             input.pop();
         }
@@ -19,6 +19,7 @@ class MyQueue {
          while(output.empty()== false){
             input.push(output.peek());
             output.pop();
+        
         }
     }
     
